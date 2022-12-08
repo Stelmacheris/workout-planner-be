@@ -7,7 +7,10 @@ require("dotenv").config();
 const app = express();
 const port = 3000;
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+{
+	origin: ["http://localhost:3000","https://workout-app-ktu-fe-1.onrender.com"],
+}));
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 

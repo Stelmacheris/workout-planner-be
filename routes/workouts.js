@@ -86,12 +86,9 @@ console.log(req.user._id,sportsmanId);
       _id: req.params.workoutId,
       sportsman: ObjectId(sportsmanId),
     });
-    if (workouts[0] && sportsman) {
       await Workout.findByIdAndDelete(workouts[0]._id);
       res.status(204).json({ message: "Deleted succesfully" });
-    } else {
-      res.status(404).json({ message: "Not found" });
-    }
+
   } catch {
     res.status(404).json({ message: "Workout not found" });
   }
